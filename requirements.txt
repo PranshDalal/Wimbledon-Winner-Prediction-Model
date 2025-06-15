@@ -1,0 +1,9 @@
+numpy
+pandas
+tensorflow
+scikit-learn
+matplotlib
+seaborn
+flask
+pickle
+flask-cors

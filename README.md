@@ -2,17 +2,6 @@
 
 This project uses machine learning to predict the outcomes of Wimbledon tennis matches based on player statistics and match history. The model is built using Python, TensorFlow, and pandas.
 
-## Table of Contents
-- [Overview](#overview)
-- [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Model Architecture](#model-architecture)
-- [Dataset](#dataset)
-- [Results](#results)
-
----
-
 ## Overview
 This project trains a neural network model to predict the winner of a tennis match (Player A or Player B) based on:
 - Player rankings
@@ -21,36 +10,27 @@ This project trains a neural network model to predict the winner of a tennis mat
 
 The model preprocesses the data, scales features, and trains a neural network using the `tensorflow` library.
 
----
-
 ## Features
 - **Data Preprocessing**: Converts head-to-head records into numerical features and normalizes input data for better model performance.
 - **Custom Neural Network**: A dense feedforward neural network with multiple hidden layers to classify match outcomes.
-- **Performance Metrics**: Outputs loss and accuracy to evaluate model performance.
+- **Match Prediction**: Form that takes user-input to predict winners of any match!
 
----
-
-## Installation
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/PranshDalal/TennisPrediction
-   cd TennisPrediction
-2. Install the required libraries:
-
-## Usage
-1. Run main.py
-   ```bash
-   python main.py
 
 ## Model Architecture
 The model is a sequential neural network with the following layers:
 
- - Input Layer: Accepts 5 features (player rankings, recent form, and head-to-head record).
- - Hidden Layers: Two dense layers with 64 and 32 neurons, using ReLU activation.
- - Output Layer: A softmax layer with 2 neurons (binary classification for Player A or Player B).
+ - Input Layer: Accepts 5 features (player rankings, recent form, and head-to-head record)
+ - First Hidden Layer: Dense layer with 64 neurons, ReLU activation, and L2 regularization (0.01)
+ - Batch Normalization Layer: Normalizes activations for better training stability
+ - Dropout Layer (0.5): Reduces overfitting
+ - Second Hidden Layer: Dense layer with 32 neurons, ReLU activation, and L2 regularization (0.01)
+ - Batch Normalization Layer: Normalizes activations
+ - Dropout Layer (0.5): Reduces overfitting
+ - Third Hidden Layer: Dense layer with 16 neurons, ReLU activation, and L2 regularization (0.01)
+ - Output Layer: Single neuron with sigmoid activation for binary classification (probability of Player 1 winning)
 
 ## Dataset
-The dataset contains match data, including:
+The dataset contains match data including:
 
  - Player rankings
  - Recent form (win/loss percentage)
@@ -58,6 +38,6 @@ The dataset contains match data, including:
  - Match outcomes (Player A or Player B)
 
 ## Results
-About 80% accuracy after 20 epochs
+About 95% accuracy after 50 epochs
 
 
